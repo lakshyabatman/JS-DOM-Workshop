@@ -1,0 +1,53 @@
+<html>
+    <script src="handler.js">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <head>
+        <title>Event Handler</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+        <div class="col">
+            <img src="dsclogo.png" style="width:100px;height:100px;">
+            <h2 style="margin-bottom:30px;"align="center"><b>Welcome To Event Handler Tutorial</b></h2>
+        </div>
+        <br>
+        <br>
+        <div class="col" id="onClickExample">
+            <div class="row">
+                <div class="col-sm-3">
+                    <button onclick="clickMe()">Hye Click Me !</button>
+                </div>
+                <div class="col-sm-4"><h3> <-Example for On Click Event</h3></div>
+            </div>
+            
+        </div>
+        <br>
+        <br>
+        <div class="row" id="onChangeExample">
+            <div class="col-sm-3">
+            <input type="text" id="field" onchange="changeEvent()" placeholder="just a random field">
+            </div>
+            <div class="col-sm-4">
+                    <h3> <-Example for On ChangeEvent</h3>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-3" id="onMouseHoverExample" style="color:white;background:red;width:100px;height:100px;" onmouseover="hoverMouse()" onmouseout="onMouseOut()"><h5 align="center" id="hoverEx">Hover In!</h5></div>
+            <div class="col-sm-4">
+                    <h3> <-Example for On Mouse Over and on Mouse Out Events</h3>
+            </div>
+        <div>
+        <br>
+        <br>
+        <div class="row">
+        <div class="col-sm-6" id="onMouseOutExample" style="color:white;background:red;width:100px;height:100px;" onmousedown="mouseDown()" onmouseup="mouseUp()"><h4 align="center"id="mousedown">Click Me!</h4></div>
+        <div class="col-sm-4">
+                <h3> <-Example for On Mouse Down and on Mouse Up Events</h3>
+        </div>
+        </div>
+        </div>    
+    </body>
+</html>
