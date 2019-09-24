@@ -1,0 +1,258 @@
+<html>
+    <head>
+        <title>DOM</title>
+        <script type="text/javascript">
+        function f1()
+        {
+            const v=document.getElementById("childlist1");
+            const y=v.parentNode;//line 8
+            document.getElementById("output").innerHTML=y;
+            /*
+            The RHS at line 8 can also be replaced by following statements
+            v.nextSibling;
+            v.previousSibling
+            */
+        }
+        function f2()
+        {
+            document.getElementById("c").innerHTML = document.getElementById("childlist1").innerHTML;
+            const i = document.getElementById("childlist1").style.color;
+            document.getElementById("c").style.color=i;
+            /*
+            The RHS can be replaced with the following statments also,
+            document.getElementById("parentlist").childNodes[0].nodeValue;
+            document.getElementById("parentlist").firstChild.nodeValue;
+             document.getElementById("parentlist").lastChild.nodeValue;
+            */
+        }
+        function f3()
+            {
+                /*This function counts number of child elements*/
+                
+                var o=document.getElementById('secondlist');
+                document.getElementById('o1').innerHTML=o.children.length;
+                // console.log(o.childElementCount);
+               // console.log(o.childNodes.length);
+            //Uncomment each of the above statments and observe the changes
+            }
+        function f4()
+            {
+                /* This functions checks whether a component has children or not*/
+                var o=document.getElementById('l1');
+                document.getElementById('o2').innerHTML=o.hasChildNodes();
+            }
+        function f5()
+            {
+                /*This function illustrates the use of createElement() and appendChild() methods*/
+            
+                const o=document.getElementById('i3');
+                const l=document.getElementById('l2');
+                l.appendChild(o);
+                console.log(document.getElementById('l2'));
+               /*createElement()
+                var myEl = document.createElement('div');
+                document.body.appendChild(myEl);
+                */
+
+            }
+        function f6()
+            {
+                var myList = document.getElementById('l3');
+                var k = document.getElementById('i4');
+                var old= myList.removeChild(k);
+                document.getElementById("o4").innerHTML=old;
+            }
+        function f7()
+        {
+            var m1 = document.getElementById('kq');
+            var m2= document.getElementById("ki");
+            document.getElementById("par").replaceChild(m1,m2);  
+        }
+        function f8()
+        {
+            var myList = document.getElementById('myList');
+            console.log(myList.firstElementChild.innerHTML); // "Example one"
+            console.log(myList.lastElementChild.innerHTML); // "Example six"
+            console.log(myList.firstElementChild.nextElementSibling.innerHTML); // "Example two"
+            console.log(myList.lastElementChild.previousElementSibling.innerHTML); // "Example five
+        }
+        function f9()
+        {
+            var newItem = document.createElement("LI");
+            var textnode = document.createTextNode("Water");
+             newItem.appendChild(textnode);
+            var list = document.getElementById("myList1");
+            list.insertBefore(newItem, list.childNodes[0]);
+        }
+        </script>
+
+    </head>
+    <body style="background: khaki">
+        <h1 style="text-align: center"><u>DOM Manipulation</u></h1>
+        <h2 style="text-align: center"><u>Relation Between DOM Nodes</u></h2>
+            <p>
+               
+                <h3>Basic Terminology</h3>
+                    <ul>
+                        <li>Parent: The predecessor of a node.</li>
+                        <li>Child: Any successor of a node.</li>
+                        <li>Siblings: Any pair of nodes that have the same parent.
+                        <li>Ancestor: The predecessor of a node together with all the ancestors of the predecessor of a node. The root node has no ancestors.
+                        <li>Descendant: The children of a node together with all the descendants of the children of a node. A leaf node has no descendants.
+                       <li>Subtree: A node together with its descendants.</li>
+                    </ul>
+            </p>
+        <div>
+            <h3>Navigation Between Nodes</h3>
+            <ul>
+                <li>parentNode</li>
+                <li>childNodes[nodenumber]</a></li>
+                <li>firstChild</li>
+                <li>lastChild</li>
+                <li>nextSibling</li>
+                <li>previousSibling</li>
+            </ul>
+            <p>Example:</p>
+            <div>
+                    <ul id="parentlist" >
+                        <li id="childlist1" style="color: crimson;">Red</li>
+                        <li style="color: orange;">Orange</li>
+                        <li style="color:darkblue;">Blue</li>
+                        <li style="color: darkgreen;">Green</li>
+                        <li style="color: darkgoldenrod;">Yellow</li>
+                        <li id="c"></li>
+                    </ul>
+                    <button onclick="f1()">Click here to find the parentNode of red item in the list</button>
+                     <p id="output"></p>
+                    <button onclick="f2()"> Click here to replace the empty item in the list with some text</button>
+            </div>
+         </div>
+         <div>
+            <h3>Some of commonly used attributes and methods</h3>
+                <div id="op">
+                    <div>
+                            <h4>1.To count no. of children and no.of nodes</h4>
+                            <p>Attributes Used</p>
+                            <ul>
+                                <li>children.length</li>
+                                <li>childElementCount</li>
+                                <li>childNodes.length</li>
+                            </ul>
+                            <p>Example:</p>
+                        <ul id="secondlist">
+                            <li>Hi</li>
+                            <li>Hello</li>
+                            <li>Hola</li>
+                        </ul>
+                        <button onclick="f3()">Click here to see number of elements in the list</button>
+                         <p id="o1"></p>
+                    </div>
+                    <div>
+
+                        <h4>2.To check whether a component has child nodes or not</h4>
+                            <p>
+                                <h5>Method used: hasChildNodes()</h5>
+                                    The hasChildNodes() method returns true if the specified node has any child nodes, otherwise false.<br>
+                                    <b>Note:</b> Whitespace inside a node is considered as text nodes, so if you leave any white space or 
+                                    line feeds inside an element, that element still has child nodes.
+                            </p>
+                            <p>Example:</p>
+                        <ul id="l1">
+                            <li>I'm a list item</li>
+                        </ul>
+                        <button onclick="f4()">Click here to whether a list has child nodes or not</button>
+                         <p id="o2"></p>
+                    
+                    </div>
+                    <div>
+                        <h4>3. To create an element and append it as child </h4>
+                            <p>
+                                <h5>Methods used: createElement() and appendChild()</h5>
+                                The createElement() method creates an Element Node with the specified name.<br>
+                                The appendChild() method appends a node as the last child of a node.
+                            </p>
+                            <p>Example:</p>
+                        <ul id="l2">
+                            <li>Hey there, how are you doing</li>
+                        </ul>
+                        <p id="i3">Hi I'm not a part of the parent list</p>
+                        <button onclick="f5()">Click here</button>
+
+                    </div>
+                    <div>
+                        <h4>4. To remove a child element</h4>
+                        <p>
+                            <h5>Method used:removeChild()</h5>
+                            The removeChild() method removes a specified child node of the specified element.
+                        </p>
+                        <p>Example:</p>
+                        <ul id="l3">
+                            <li>This a list item</li>
+                            <li id="i4">Random item</li>
+                        </ul>
+                        <button onclick="f6()">Click here to see the element deleted</button>
+                        <p id="o4"></p>
+                    </div>
+                    <div>
+                        <h4>5. To replace a child element</h4>
+                        <p>
+                            <h5>Method Used:replaceChild()</h5>
+                            The replaceChild() method replaces a child node with a new node.
+                            The new node could be an existing node in the document, or you can create a new node.
+                        </p>
+                        <p>Example:</p>
+                        <ul id='par'>
+                            <li id="ki">Hey there</li>
+                            <li id="kq">How are you doing?</li>
+                            <li>List Item</li>
+                        </ul>
+                        <button onclick="f7()">Click here to see the replaced text</button>
+                    </div>
+                    <div>
+                        <h4>6. To access elements</h4>
+                        <p>
+                            List of attributes used:
+                            <ul>
+                                <li>firstElementChild</li>
+                                <li>lastElementChild</li>
+                                <li>nextElementSibling</li>
+                                <li>previousElementSibling</li>
+                            </ul>
+                        </p>
+                        <p>Example:</p>
+                            <ul id="myList">
+                                <li>one</li>
+                                <li>two</li>
+                                <li>three</li>
+                                <li>four</li>
+                                <li>five</li>
+                                <li>Six</li>
+                              </ul>
+                              <button onclick="f8()">Click here to see the output on console</button>
+                    </div>
+                    <div>
+                        <h4>7. To inject data </h4>
+                        <p>
+                            <h5>Method Used: insertBefore()</h5>
+                            The insertBefore() method inserts a node as a child, right before an existing child, which you specify.
+                        </p>
+                        <p>Example:</p>
+                              <ul id="myList1">
+                                    <li>Coffee</li>
+                                    <li>Tea</li>
+                                  </ul>
+                                  
+                        <button onclick="f9()">Click here to reflect the changes</button>
+                    </div>
+                </div>
+                <div>
+                    <p>Reference materials</p>
+                    <ul>
+                        <li><a href="https://www.w3schools.com/jsref/dom_obj_all.asp">HTML DOM Element Objects</a></li>
+                        <li><a href="https://www.sitepoint.com/dom-tips-techniques-parent-child-siblings">DOM Tips and Techniques</a></li>
+                    </ul>
+                </div>
+
+         </div>
+    </body>
+</html>
