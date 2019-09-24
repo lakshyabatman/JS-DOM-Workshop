@@ -14,5 +14,5 @@
  
  - Lakshya Khera ( [lakshyabatman](https://github.com/lakshyabatman) )
  - Shubham Dubey [enter link description here](#)
- - Simran [enter link description here](#)
+ - Simran [Sonal240](https://github.com/Sonal240)
 
